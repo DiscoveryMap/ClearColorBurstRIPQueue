@@ -7,7 +7,7 @@
 		<key>ProgramArguments</key>
 		<array>
 			<string>/Users/rip/bin/ClearColorBurstRIPQueue</string>
-			<string>3</string>
+			<string>2</string>
 		</array>
 		<key>StartCalendarInterval</key>
 		<dict>
@@ -16,5 +16,9 @@
 			<key>Minute</key>
 			<integer>0</integer>
 		</dict>
+		<key>StandardOutPath</key>
+		<string>/Users/rip/Library/Logs/com.discoverymap.ClearColorBurstRIPQueue-activity.log</string>
+		<key>StandardErrorPath</key>
+		<string>/Users/rip/Library/Logs/com.discoverymap.ClearColorBurstRIPQueue-error.log</string>
 	</dict>
 </plist>

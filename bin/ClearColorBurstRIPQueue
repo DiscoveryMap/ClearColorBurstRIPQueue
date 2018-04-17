@@ -3,19 +3,26 @@
 # 
 # ClearColorBurstRIPQueue - Clean out ColorBurst RIP queue jobs older than n days
 # 
-# v0.1   - 2017-11-14 -  Morgan Aldridge <morgant@makkintosshu.com>
+# v0.1   - 2017-11-14 - Morgan Aldridge <morgant@makkintosshu.com>
+#                       Initial version.
+# v0.1.1 - 2018-04-17 - Morgan Aldridge
+#                       Improved logging.
 # 
+
+echo "$(date "+%Y-%m-%d %H:%M:%S") ${0} executing..."
 
 rip_queue_path="${HOME}/Library/Application Support/ColorBurst/Overdrive"
 
-echo "Deleting the following ColorBurst OverDrive RIP jobs {$1} days old (or older) from '${rip_queue_path}':"
+echo "$(date "+%Y-%m-%d %H:%M:%S") Deleting the following ColorBurst OverDrive RIP jobs ${1} days old (or older) from '${rip_queue_path}':"
 find "${rip_queue_path}" -iname "*.cbripjob" -mtime +${1}
 
-echo -n "Deleting... "
+echo -n "$(date "+%Y-%m-%d %H:%M:%S") Deleting... "
 if find "${rip_queue_path}" -iname "*.cbripjob" -mtime +${1} -exec rm -r {} +; then
 	echo "Done."
+	echo "$(date "+Y-%m-%d %H:%M:%S") ${0} exiting." 
 else
 	echo "ERROR!"
+	echo "$(date "+Y-%m-%d %H:%M:%S") ${0} exiting."
 	exit 1
 fi
 
